@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Poster PDF App</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        body { background: #000; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center; }
+        .poster-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .poster { width: 200px; height: 300px; cursor: pointer; border: 3px solid white; transition: 0.3s; }
+        .poster:hover { transform: scale(1.05); }
+        .pdf-section { display: none; margin-top: 20px; padding: 15px; background: #222; border-radius: 5px; }
+        .pdf-button { padding: 12px 24px; background: #fff; color: #000; text-decoration: none; font-size: 16px; border-radius: 5px; display: inline-block; transition: 0.3s; }
+        .pdf-button:hover { background: grey; color: white; }
+    </style>
+</head>
+<body>
+
+    <h2>Select a Movie Poster</h2>
+
+    <!-- Movie Posters -->
+    <div class="poster-container">
+        <img src="poster1.jpg" class="poster" onclick="showPDF('movie1.pdf')">
+        <img src="poster2.jpg" class="poster" onclick="showPDF('movie2.pdf')">
+        <img src="poster3.jpg" class="poster" onclick="showPDF('movie3.pdf')">
+    </div>
+
+    <!-- PDF Download Section -->
+    <div class="pdf-section" id="pdfSection">
+        <p>Download the Movie PDF below:</p>
+        <a id="pdfLink" class="pdf-button" download>📄 Download PDF</a>
+    </div>
+
+    <script>
+        function showPDF(pdfFile) {
+            document.getElementById('pdfSection').style.display = 'block';
+            document.getElementById('pdfLink').href = pdfFile;
+        }
+    </script>
+
+</body>
+</html>
